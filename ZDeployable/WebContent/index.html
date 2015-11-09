@@ -1,27 +1,44 @@
 <!DOCTYPE HTML>
 <html>
+
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
-
-		<script src="resources/sap-ui-core.js"
-				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+		
+		<title>Grid - Info Layout</title>
+		
+		<script id="sap-ui-bootstrap"
+			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-xx-bindingSyntax="complex"
+			data-sap-ui-preload="async"
+			data-sap-ui-compatVersion="edge" 
+			data-sap-ui-resourceroots='{"sap.ui.layout.sample.GridInfo": "./", "sap.ui.demo.mock": "mockdata"}'>
 		</script>
-		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
-
+		
+		<!-- Application launch configuration -->
 		<script>
-		//deneme2
-				sap.ui.localResources("zdeployable");
-				var app = new sap.m.App({initialPage:"idZDeployable1"});
-				var page = sap.ui.view({id:"idZDeployable1", viewName:"zdeployable.ZDeployable", type:sap.ui.core.mvc.ViewType.JS});
-				app.addPage(page);
-				app.placeAt("content");
-		</script>
+		
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.App ({
+				    pages: [
+				        new sap.m.Page({
+				            title: "Grid - Info Layout", 
+				            enableScrolling : true,
+    					    content: [ new sap.ui.core.ComponentContainer({
+    						    name : "sap.ui.layout.sample.GridInfo"
+    					    })]
+    					})
+    				]
+				}).placeAt("content");
+			});
 
+		</script>
 	</head>
-	<body class="sapUiBody" role="application">
-		<div id="content"></div>
+	
+	<!-- UI Content -->
+	<body class="sapUiBody" id="content" role="application">
 	</body>
+	
 </html>
